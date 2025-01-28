@@ -71,7 +71,11 @@ function operation(string) {
             mulitpleOperation = true
             break
         case "÷":
+            if (second === 0) {
+                temp_answer = "TRY again :("
+            } else {
             temp_answer = divide(Number(first),Number(second))
+            }
             displayCalculator(temp_answer)
             first=temp_answer
             value= temp_answer
@@ -149,5 +153,16 @@ commence.addEventListener(`click`, () => {
         operation(value)
     }
 }) 
-
-//set the clear to reset the once operator
+const clear = document.getElementById("clear")
+clear.addEventListener('click', () => {
+    value = ""
+    display = 0
+    displayCalculator(display)
+    first = 0
+    second = 0
+    temp_answer = 0
+    mulitpleOperation = false
+    lastOperation =""
+    firstOperation = ""
+})
+//set the clear to reset the once operator {}
