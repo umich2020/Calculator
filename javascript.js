@@ -118,7 +118,6 @@ numbers.forEach((number) => {
         display = display.toString()
         value += number.textContent
         html_display.textContent = display
-        console.log(value)//we're keeping this because we got to add backspace functionality
     })
 })
 
