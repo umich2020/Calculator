@@ -44,7 +44,6 @@ function operation(string) {
        }
         
     }
-    console.log("the second value is "+second)
     switch(firstOperation) {
         case "+":
             temp_answer = add(Number(first),Number(second))
@@ -151,6 +150,12 @@ commence.addEventListener(`click`, () => {
     if (value[value.length -1] !== "=" && value.length >= 3 ) {
         value += "z"
         operation(value)
+        if (Number(value.slice(0, value.length-1)) % 1 === 0 ) {
+            displayCalculator(value)
+        }
+        else {
+            html_display.textContent = Number(value.slice(0, value.length-1)).toFixed(5)
+        } 
     }
 }) 
 const clear = document.getElementById("clear")
