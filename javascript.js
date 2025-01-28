@@ -1,7 +1,7 @@
 //functions
 //coding based function
-function displayCalculator(number) {
-    html_display.textContent = number
+function displayCalculator(numbers) {
+    html_display.textContent = numbers.toString().slice(0, numbers.length-1)
 }
 function isNumeric(num) {
     return !isNaN(parseFloat(num)) && isFinite(num);
@@ -110,7 +110,19 @@ let html_display = document.getElementById("display")
 //gets each number and output to display
 const numbers = document.querySelectorAll(".number")
 numbers.forEach((number) => {
-    number.addEventListener(`click`, () => {
+    number.addEventListener(`click`, () => {//javascript to simulate the clear button if there's alread
+        //a number
+/*        if(temp_answer !== 0) {
+            value = ""
+            display = 0
+            displayCalculator(display)
+            first = 0
+            second = 0
+            temp_answer = 0
+            mulitpleOperation = false
+            lastOperation =""
+            firstOperation = ""
+        }*/
         display = 10 * display + Number(number.textContent)
         display = display.toString()
         value += number.textContent
