@@ -29,14 +29,11 @@ function divide(x,y) {
 //assume string is 30x60
 function operation(string) {
     for (let i =0; i < string.length - 1; i++) {
-        if (string[i] === "=") {
-            break
-        }
+        
         if (string[i] === "x" || string[i] === "+" || string[i] === "-" || string[i] === "÷") {
             firstOperation = string[i]
             for (let k=i+1; k < string.length -1; k++) {
                 second = 10 * second + Number(string[k])
-                //console.log("second is "+ second)
             }
             break
         } else {
@@ -123,40 +120,34 @@ numbers.forEach((number) => {
 const operators = document.querySelectorAll(".operator")
 operators.forEach((operator) => {
     operator.addEventListener(`click`, () => {
-        console.log(value)
         display = 0 //i'm not sure if this is right, will fix later no it's ocrrect
         html_display.textContent = display
         if (value[value.length -1] === "x" || value[value.length -1] === "+" || value[value.length -1] === "-" || value[value.length -1] === "÷") {
             value = value.slice(0,-1)
         }
         value+= operator.textContent
-        
-        console.log(value)
         lastOperation = value[value.length -1]
         if (isNumeric(value[value.length -2]) && checkOperators(value) === true) {
-            console.log("operation time!")
             operation(value)
-            console.log('value after operation is ' +value)
-            //console.log('to fixed is' +Number(value[0, value.length-2]).toFixed(5))
             
             if (Number(value.slice(0, value.length-1)) % 1 === 0 ) {
-            console.log('whay doesnt this work value is' + Number(value.slice(0, value.length-1)))
-            console.log('value after operation is ' +value)
                 displayCalculator(value)
             }
             else {
                 html_display.textContent = Number(value.slice(0, value.length-1)).toFixed(5)
-
             } 
             
         }
 
     })
 })
-/*
+
 const commence = document.getElementById("commence")
 commence.addEventListener(`click`, () => {
-    operation(value)
+    if (value[value.length -1] !== "=" && value.length >= 3 ) {
+        value += "z"
+        operation(value)
+    }
 }) 
-*/
+
 //set the clear to reset the once operator
