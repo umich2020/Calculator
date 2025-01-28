@@ -110,24 +110,12 @@ let html_display = document.getElementById("display")
 //gets each number and output to display
 const numbers = document.querySelectorAll(".number")
 numbers.forEach((number) => {
-    number.addEventListener(`click`, () => {//javascript to simulate the clear button if there's alread
-        //a number
-/*        if(temp_answer !== 0) {
-            value = ""
-            display = 0
-            displayCalculator(display)
-            first = 0
-            second = 0
-            temp_answer = 0
-            mulitpleOperation = false
-            lastOperation =""
-            firstOperation = ""
-        }*/
+    number.addEventListener(`click`, () => {
         display = 10 * display + Number(number.textContent)
         display = display.toString()
         value += number.textContent
         html_display.textContent = display
-        console.log(value)
+        console.log(value)//we're keeping this because we got to add backspace functionality
     })
 })
 
@@ -135,7 +123,7 @@ numbers.forEach((number) => {
 const operators = document.querySelectorAll(".operator")
 operators.forEach((operator) => {
     operator.addEventListener(`click`, () => {
-        display = 0 //i'm not sure if this is right, will fix later no it's ocrrect
+        display = 0 
         html_display.textContent = display
         if (value[value.length -1] === "x" || value[value.length -1] === "+" || value[value.length -1] === "-" || value[value.length -1] === "÷") {
             value = value.slice(0,-1)
@@ -182,4 +170,3 @@ clear.addEventListener('click', () => {
     lastOperation =""
     firstOperation = ""
 })
-//set the clear to reset the once operator {}
