@@ -111,6 +111,9 @@ let html_display = document.getElementById("display")
 const numbers = document.querySelectorAll(".number")
 numbers.forEach((number) => {
     number.addEventListener(`click`, () => {
+        if (display === "CLEARED!") {
+            display = 0
+        }
         display = 10 * display + Number(number.textContent)
         display = display.toString()
         value += number.textContent
@@ -161,7 +164,7 @@ commence.addEventListener(`click`, () => {
 const clear = document.getElementById("clear")
 clear.addEventListener('click', () => {
     value = ""
-    display = 0
+    display = "CLEARED!"
     displayCalculator(display)
     first = 0
     second = 0
